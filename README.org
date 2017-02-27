@@ -12,6 +12,8 @@ Where FILE contains input text to format. If FILE is absent the input is taken f
 * Options
 
 -html -- formats as HTML
+
 -xml -- formats as XML
+
 -json -- formats as JSON
 
