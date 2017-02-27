@@ -1,0 +1,17 @@
+
+*pretty-printer* - command-line program which formats input text according to its format.
+
+lambdaprime <id.blackmesa@gmail.com>
+
+* Usage
+
+java -jar pretty-printer.jar < -html | -xml | -json > [FILE]
+
+Where FILE contains input text to format. If FILE is absent the input is taken from the standard input.
+
+* Options
+
+-html -- formats as HTML
+-xml -- formats as XML
+-json -- formats as JSON
+
