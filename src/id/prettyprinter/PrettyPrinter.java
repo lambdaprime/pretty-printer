@@ -54,7 +54,7 @@ public class PrettyPrinter {
                     String line = scanner.nextLine();
                     int i = 0;
                     while (i < line.length() && line.charAt(i) == '\t') {
-                        System.out.print(" ");
+                        System.out.print("    ");
                         i++;
                     }
                     System.out.println(line.substring(i));
