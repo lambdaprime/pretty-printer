@@ -1,12 +1,10 @@
 package id.prettyprinter;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.jsoup.Jsoup;
@@ -40,9 +38,17 @@ public class PrettyPrinter {
             }
         },
         JSON {
+            String asString(InputStream is) {
+                Scanner s  = new Scanner(is);
+                StringBuilder buf = new StringBuilder();
+                while (s .hasNextLine()) 
+                    buf.append(s .nextLine());
+                s.close();
+                return buf.toString();
+            }
             @Override
             void run(InputStream is) throws Exception {
-                String json =  new PrettyJsonFormatter().format(new JdomParser().parse(new BufferedReader(new InputStreamReader(is))));
+                String json =  new PrettyJsonFormatter().format(new JdomParser().parse(asString(is)));
                 Scanner scanner = new Scanner(json);
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
@@ -52,7 +58,7 @@ public class PrettyPrinter {
                         i++;
                     }
                     System.out.println(line.substring(i));
-                }
+                }   
                 scanner.close();
             }
         };
