@@ -3,6 +3,10 @@
 
 lambdaprime <id.blackmesa@gmail.com>
 
+* Download
+
+The pretty-printer.jar can be found in release folder.
+
 * Usage
 
 java -jar pretty-printer.jar < -html | -xml | -json > [FILE]
